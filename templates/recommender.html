@@ -1,0 +1,70 @@
+{% extends "layout.html" %}
+{% block content %}
+<div id="recommendations" class="h-100 mt-5 p-5 bg-light border rounded-3">
+  <div class="recommender">
+    <h2 class="highlight">NexTravel Destinations &#9992;</h2>
+    <br>
+
+    <div class="row row-1 row-cols-lg-3 m-0">
+
+      <div class="col col-4">
+
+        <ul class = "list-group">
+            {% for rec in recs %}
+            <li class = "list-group-item text-center">
+              
+              {{rec[0]}}  
+
+              {% if not rec[2] %}
+                &#128308;
+              {% else %}
+                &#9711;
+              {% endif %}
+              
+            
+            </li>
+            <br>
+            {% endfor %}
+        </ul>
+    
+      </div>
+
+      <div class="col col-8">
+        
+
+        <figure>
+        
+          <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+          <div class="chart" id="map">
+              <script>
+                var chart = {{ plot | safe}};
+              Plotly.plot('map', chart, {});
+              </script>
+          </div>
+          <figcaption class = "blockquote-footer">
+              Derived from data set <strong>ml-latest-small</strong> by <cite title="Group Lense">Group Lense</cite>
+          </figcaption>
+      </figure>
+
+
+      </div>
+
+
+    </div>
+
+
+    <div class="row m-2 mt-5">
+
+      <div class ="col-md-2 m-1 p-1">
+          <a class="btn btn-outline-dark highlight" href="{{url_for('rater')}}">< Previous </a>
+      </div>
+
+      <div class ="col-md-2 m-1 p-1">
+        <a class="btn btn-outline-dark highlight" href="{{url_for('index')}}"> Back to Main</a>
+      </div>
+  </div>
+
+  </div>
+</div>
+
+{% endblock %}

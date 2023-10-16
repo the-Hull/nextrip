@@ -1,0 +1,216 @@
+{% extends "layout.html" %}
+{% block content %}
+<div id="bigfive" class="h-100 mt-5 p-5 bg-light border rounded-3">
+
+  
+    <h2 class="highlight">Big Five &#128374;&#65039;</h2>
+
+    <br>
+
+
+    <form method="POST" action="{{url_for('bigfive')}}">
+        {{ form.csrf_token }}
+       
+
+
+        <p>
+            <strong>{{ form.open.label }}</strong>
+        </p>
+        <p>
+            {{ form.open(min=0, max = 1, step = 0.05) }} 
+            
+            &nbsp;&nbsp; 
+
+            This trait ranges from consistent/cautious to inventive/curious.
+            
+            <a class="tiptext" href="https://en.wikipedia.org/wiki/Big_Five_personality_traits#Openness_to_experience" target="_blank">
+                See Openness @ Wikipedia 
+                <iframe id="agree" class="description" src="https://en.wikipedia.org/wiki/Big_Five_personality_traits"></iframe>
+                
+            </a>
+
+        </p>
+
+        {% if form.open.errors %}
+            <ul class="errors">
+                {% for error in form.open.errors %}
+                    <li>{{ error }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+
+        <br>
+
+
+        <p>
+            <strong>{{ form.cons.label }}</strong>
+        </p>
+        <p>
+
+            {{ form.cons(min=0, max = 1, step = 0.05) }}  
+
+            &nbsp;&nbsp; 
+
+            This trait ranges from extravagant/careless to efficient/organized.
+            
+            <a class="tiptext" href="https://en.wikipedia.org/wiki/Big_Five_personality_traits#Conscientiousness" target="_blank">
+                See Conscientiousness @ Wikipedia 
+                <iframe id="agree" class="description" src="https://en.wikipedia.org/wiki/Big_Five_personality_traits"></iframe>
+                
+            </a>
+            
+            
+
+            
+        </p>
+
+        {% if form.cons.errors %}
+            <ul class="errors">
+                {% for error in form.cons.errors %}
+                    <li>{{ error }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+
+        <br>
+
+
+        <p>
+            <strong>{{ form.extra.label }}</strong>
+        </p>
+
+        <p>
+            {{ form.extra(min=0, max = 1, step = 0.05) }} 
+
+            &nbsp;&nbsp; 
+
+            This trait ranges from solitary/reserved to outgoing/energetic.
+            
+            <a class="tiptext" href="https://en.wikipedia.org/wiki/Big_Five_personality_traits#Extraversion" target="_blank">
+                See Extraversion @ Wikipedia 
+                <iframe id="agree" class="description" src="https://en.wikipedia.org/wiki/Big_Five_personality_traits"></iframe>
+                
+            </a>
+
+        </p>
+
+        {% if form.extra.errors %}
+            <ul class="errors">
+                {% for error in form.extra.errors %}
+                    <li>{{ error }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+
+        <br>
+
+        <p>
+           <strong>{{ form.agree.label }}</strong> 
+        </p>
+        <p>
+            {{ form.agree(min=0, max = 1, step = 0.05) }} 
+            
+            &nbsp;&nbsp; 
+            
+            This trait ranges from critical/rational to friendly/compassionate.
+            
+            <a class="tiptext" href="https://en.wikipedia.org/wiki/Big_Five_personality_traits#Agreeableness" target="_blank">
+                See Agreeableness @ Wikipedia 
+                <iframe id="agree" class="description" src="https://en.wikipedia.org/wiki/Big_Five_personality_traits"></iframe>
+                
+            </a>
+
+        </p>
+
+        {% if form.agree.errors %}
+            <ul class="errors">
+                {% for error in form.agree.errors %}
+                    <li>{{ error }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+
+
+        <br>
+
+        <p>
+           <strong>{{ form.neuro.label }}</strong> 
+        </p>
+        <p>
+            {{ form.neuro(min=0, max = 1, step = 0.05) }} 
+            
+            &nbsp;&nbsp; This trait ranges from resilient/confident to sensitive/nervous.
+
+            <a class="tiptext" href="https://en.wikipedia.org/wiki/Big_Five_personality_traits#Neuroticism" target="_blank">
+                See Neuroticism @ Wikipedia 
+                <iframe id="neuro" class="description" src="https://en.wikipedia.org/wiki/Big_Five_personality_traits"></iframe>
+                
+            </a>
+
+        
+        </p>
+
+        {% if form.neuro.errors %}
+            <ul class="errors">
+                {% for error in form.neuro.errors %}
+                    <li>{{ error }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+
+
+
+        <br>
+
+        
+        <h2 class="highlight">{{ form.age.label }} &#128197;</h2>
+        
+        <br>
+
+        <p>
+            {{ form.age}} 
+            
+            &nbsp;&nbsp; 
+            
+            Choose an appropriate age group.
+
+        </p>
+
+        {% if form.age.errors %}
+            <ul class="errors">
+                {% for error in form.agree.errors %}
+                    <li>{{ error }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+
+
+
+
+
+
+
+     
+
+      
+        <div class="row m-2 mt-5">
+
+            <div class ="col-md-2 m-1 p-1">
+                <a class="btn btn-outline-dark highlight" href="{{url_for('index')}}">< Previous </a>
+            </div>
+
+            <div class ="col-md-2 m-1 p-1">
+                <input type="submit" value="Next >" class="btn btn-outline-dark highlight">
+            </div>
+        </div>
+    </form>
+
+
+    
+</div>
+
+
+
+
+
+{% endblock %}

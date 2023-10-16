@@ -1,0 +1,15 @@
+.highlight {
+    color: #26A69A;
+  }
+
+.tiptext {
+    color:#069; 
+    cursor:pointer;
+}
+.description {
+    display:none;
+    position:absolute;
+    border:1px solid #000;
+    width:600px;
+    height:400px;
+}

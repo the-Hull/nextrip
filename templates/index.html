@@ -1,0 +1,85 @@
+{% extends "layout.html" %}
+{% block content %}
+
+
+
+
+{% set ns = namespace(value=1) %}
+
+
+
+<div id="input" class="h-100 mt-5 p-5 bg-light border rounded-3">
+    
+<h2 class="text-center highlight">Where are you headed for your <strong>NexTrip</strong>? &#9992; </h2>
+
+<br>
+
+<p>
+    <strong>NexTrip</strong> helps you find your next destination for a well deserved break
+     after 12 weeks of intense coding, problem-solving and head-scratching.
+     
+     <br>
+     NexTrip uses Non-negatve Matrix Factoring (<strong>NMF</strong>) to predict destination ratings based on your preferences from similar users (calculated with <strong>Euclidian Distances</strong>).
+     <br>
+     Find out more about the statistics in the background <a href="https://en.wikipedia.org/wiki/Non-negative_matrix_factorization">here</a>.
+</p>
+
+
+<div class="row g-4 py-3 row-cols-1 row-cols-lg-3 mb-0">
+    
+    <div class="col d-flex align-items-start">
+      <div>
+          <h3 class="highlight">1. Introduce Yourself     &#128075;&#127997;</h2>
+          <p>
+            Set your <a href="https://en.wikipedia.org/wiki/Big_Five_personality_traits" target="_blank"><i>Big 5 Personality Traits</i></a>.
+            We'll use these to identify similar travellers based on your character and your age group.
+        </p>
+      </div>
+    </div>
+
+    
+    <div class="col d-flex align-items-start">
+      <div>
+        <h3 class="highlight">2. Set your Style &#129406;&#x1f3d6;&#xfe0f;</h2>
+        
+        <p>
+            Choose your typical travel style(s), like <i>Urban Explorer</i>, <i>Foodie</i> or <i>Thrill Seeker</i>.
+            We'll use these to match you with similar travellers, combined with your personality and age.</p>
+      </div>
+    </div>
+   
+    
+    <div class="col d-flex align-items-start">
+      <div>
+        <h3 class="highlight">3. Rate Destinations &#128175;&#10004;&#65039;</h2>
+        <p>
+            Tell us which destinations you <strong>love</strong> or <strong>dislike</strong>.
+            We'll use these to inform our predictions based on destination ratings from the 500 most similar users in our database.
+        </p>
+        
+      </div>
+    </div>
+  </div>
+
+  
+    <div class="row m-2">
+
+        <div class ="col text-center">
+      
+          <a href="{{url_for('bigfive')}}" class="btn btn-outline-dark highlight">
+              Get Started!
+            </a>
+        </div>
+    </div>
+    
+
+
+    <datalist id="ages">
+        {% for age in ages%}
+        <option value="{{age}}"></option>
+        {% endfor %}
+    
+    </datalist>
+
+
+{% endblock %}

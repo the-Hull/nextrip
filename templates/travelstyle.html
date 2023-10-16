@@ -1,0 +1,73 @@
+{% extends "layout.html" %}
+{% block content %}
+<div id="travelstyle" class="h-100 mt-5 p-5 bg-light border rounded-3">
+
+  
+    <h2 class="highlight">Travel Styles &#129406;&#x1f3d6;&#xfe0f;</h2>
+
+    <br>
+
+
+    <form method="POST" action="{{url_for('travelstyle')}}">
+        {{ form.csrf_token }}
+       
+
+
+        <div class="row g-4 py-3 row-cols-1 row-cols-lg-3 mb-0">
+    
+            <div class="col d-flex align-items-start">
+              
+                <p>
+                    <strong>{{ form.style.label }}</strong>
+                </p>
+                <br>
+                <p>
+                    {{ form.style(class_="form-select-lg m-2 me-5", multiple=True, size=15)}} 
+
+                </p>
+
+                {% if form.style.errors %}
+                    <ul class="errors">
+                        {% for error in form.style.errors %}
+                            <li>{{ error }}</li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+
+            </div>
+        
+            
+            <div class="col d-flex align-items-start">
+              <div>
+                <p>
+                    Choose one or multiple styles that best fit your travelling. 
+                    <br>
+                    Hold down CTRL/CMD while clicking to select several options.
+
+                </p>    
+                
+              </div>
+            </div>
+
+        </div>
+
+
+
+      
+        <div class="row m-2 mt-5">
+
+            <div class ="col-md-2 m-1 p-1">
+                <a class="btn btn-outline-dark highlight" href="{{url_for('bigfive')}}">< Previous </a>
+            </div>
+
+            <div class ="col-md-2 m-1 p-1">
+                <input type="submit" value="Next >" class="btn btn-outline-dark highlight">
+            </div>
+        </div>
+    </form>
+
+
+    
+</div>
+
+{% endblock %}

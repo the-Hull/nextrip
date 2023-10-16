@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+{% block content %}
+<div id="db-users" class="h-100 mt-5 p-5 bg-light border rounded-3">
+  
+    <h3>Distribution of all User Ratings</h3>
+
+    <figure>
+        
+        <div class="text-center">
+            <img src="{{url_for('static', filename = 'assets/fig/city_ratings.png')}}" class="figure-img img-fluid rounded" style="max-width: 50%;">
+
+        </div>
+        <figcaption class = "figure-caption" style="text-align: center;">
+            Derived from data set <strong>ml-latest-small</strong> by <cite title="Group Lense">Group Lense</cite>
+        </figcaption>
+    </figure>
+
+    <br>
+
+    <figure>
+        
+        <div class="text-center">
+            <img src="{{url_for('static', filename = 'assets/fig/city_ratings_panel.png')}}" class="figure-img img-fluid rounded" style="max-width: 50%;">
+
+        </div>
+        <figcaption class = "figure-caption" style="text-align: center;">
+            Derived from data set <strong>ml-latest-small</strong> by <cite title="Group Lense">Group Lense</cite>
+        </figcaption>
+    </figure>
+
+</div>
+
+{% endblock %}
