@@ -129,12 +129,20 @@ cities_gr_five_reviews = dsets['user_reviews'] \
 
 # Save relevant dicts/dfs -----------------------------------------------------------------------------
 
-dsets['user_characteristics'].to_json("./data/_processed/user_characteristics.json")
-city_ratings_matrix.to_json("./data/_processed/user_city_ratings.json")
+# dsets['user_characteristics'].to_json("./data/_processed/user_characteristics.json")
+# city_ratings_matrix.to_json("./data/_processed/user_city_ratings.json")
+dsets['city_ratings_matrix'] = city_ratings_matrix
 
+# print(city_ratings_matrix.axes)
+
+dsets['city_ratings_matrix'].axes[1].name = None
+dsets['city_ratings_matrix'].index = dsets['city_ratings_matrix'].index.astype(str)
 
 import pickle as pk
 
 with open('./data/_processed/users_ratings_list.pkl', 'wb') as f:
    pk.dump(dsets, f)
+
+
+
 
