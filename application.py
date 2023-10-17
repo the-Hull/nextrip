@@ -191,25 +191,6 @@ def about_locations():
     return render
 
 
-# @app.route('/api/data/')
-# def data():
-
-#     data_dict = {'data' : [r.to_dict() for i,r in rc.movies.reset_index().iterrows()]}
-#     print(data_dict['data'][0])
-
-#     return data_dict
-
-# @app.route('/dbmovies/')
-# def dbmovies():
-
-#     return render_template("db_movies.html")
-
-# @app.route('/dbusers/')
-# def dbusers():
-
-#     plot = viz.plot_users()
-
-#     return render_template("db_users.html", plot = plot)
 
 
 
